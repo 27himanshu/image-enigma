@@ -4,20 +4,36 @@
 """
 import scipy.misc as misc
 import enigma
-import generator
+import keys
+from skimage import data            #for colored lena
 
-e = enigma.Enigma((0, 0), generator.w_rotor1, generator.w_rotor2, generator.w_reflector, 
-                  generator.w_plugboard, bpp=8)
-
-"""Encrypting Lena"""
+"""Encrypting Grayscale Lena"""
+e = enigma.Enigma((0, 0), keys.w_rotor1, keys.w_rotor2, keys.w_reflector, 
+                  keys.w_plugboard, bpp=8)
 image=misc.lena()
-save_as="/home/user/encrypted_lena.png"
+save_as="/home/user/encrypted_gray_lena.png"
 e_image = e.cipher_image(image)
 misc.imsave(save_as, e_image)
                   
-"""Decrypting Lena"""
-save_as="/home/user/unencrypted_lena.png"
-e = enigma.Enigma((0, 0), generator.w_rotor1, generator.w_rotor2, generator.w_reflector, 
-                  generator.w_plugboard, bpp=8)
+                  
+"""Decrypting Grayscale Lena"""
+save_as="/home/user/unencrypted_gray_lena.png"
+e = enigma.Enigma((0, 0), keys.w_rotor1, keys.w_rotor2, keys.w_reflector, 
+                  keys.w_plugboard, bpp=8)
+une_image=e.cipher_image(e_image)
+misc.imsave(save_as, une_image)
+
+"""Encrypting Colored Lena"""
+e = enigma.Enigma((0, 0), keys.w_rotor1, keys.w_rotor2, keys.w_reflector, 
+                  keys.w_plugboard, bpp=8)
+image=data.lena()
+save_as="/home/user/encrypted_color_lena.png"
+e_image = e.cipher_image(image)
+misc.imsave(save_as, e_image)
+
+"""Decrypting Colored Lena"""
+save_as="/home/user/unencrypted_color_lena.png"
+e = enigma.Enigma((0, 0), keys.w_rotor1, keys.w_rotor2, keys.w_reflector, 
+                  keys.w_plugboard, bpp=8)
 une_image=e.cipher_image(e_image)
 misc.imsave(save_as, une_image)

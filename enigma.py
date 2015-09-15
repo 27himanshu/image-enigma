@@ -8,7 +8,6 @@ C(255,2)*C(253,2)*C(251,2)...*C(235,2) =   144,344,660,914,893,408,208,528,832,4
 @author: himanshu
 """
 
-import numpy as np
 
 class Rotor():
 
@@ -109,8 +108,15 @@ class Enigma():
         
     def cipher_image(self, image):
         """Encode an image file row-wise"""
-        e_image=np.zeros(image.shape, dtype=int)
-        for i in range(image.shape[0]):
-            e_image[i]=self.cipher(image[i])
+        e_image=image[:]    #copying image to e_image
+        if(len(image.shape) == 2):
+            for i in range(image.shape[0]):
+                e_image[i]=self.cipher(image[i])
+        else:
+            layers=image.shape[2]
+            for i in range(layers):
+                n_image=image[:,:,i]
+                for j in range(n_image.shape[0]):
+                    e_image[j,:,i]=self.cipher(n_image[j])
         return e_image
         
