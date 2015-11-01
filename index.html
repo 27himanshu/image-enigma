@@ -22,10 +22,11 @@
       <h1>
 <a id="image-enigma" class="anchor" href="#image-enigma" aria-hidden="true"><span class="octicon octicon-link"></span></a>image-enigma</h1>
 
-<p>For an 8-bit image and 2 rotors we have 2*255*255=130050 combinations<br>
+<p>Using Enigma machine to encrypt images.<br>
+For an 8-bit image and 2 rotors we have 2\*255\*255=130050 combinations<br>
 Assuming fixed reflectros, that is wiring of reflector cannot be changed.<br>
-Using a maximum possible pairs of plugboard wires (128 pairs for an 8-bit image), We have C(256,2)*C(254,2)*....*C(2,2) = 256!/2^256 = 7.408E+429<br>
-Total possible combinations ≈ 10^434 = 2^1441, That is 1441 bits (which is quie strong).</p>
+Using a maximum possible pairs of plugboard wires (128 pairs for an 8-bit image), We have (<sup>256</sup>C<sub>2</sub> \* <sup>254</sup>C<sub>2</sub> \* .... \* <sup>2</sup>C<sub>2</sub>)/123! = 256!/(2<sup>256</sup> * 123!)  = 6.099E+224<br>
+Total possible combinations ≈ 10<sup>229</sup>  = 2<sup>768</sup>, That is 768 bits. </p>
 
 <h2>
 <a id="using-single-layered-grayscale-image" class="anchor" href="#using-single-layered-grayscale-image" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using single layered Grayscale Image</h2>
