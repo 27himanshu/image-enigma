@@ -5,8 +5,8 @@ Using Enigma machine to encrypt images.
 
 For an 8-bit image and 2 rotors we have 2\*255\*255=130050 combinations  
 Using a maximum possible pairs of plugboard wires (128 pairs for an 8-bit image)  
-We have C(256,2)\*C(254,2)\*....\*C(2,2) = 256!/2^256  = 7.408E+429
-Total possible combinations ≈ 10^434  
+We have C(256,2)\*C(254,2)\*....\*C(2,2) = 256!/2^256  = 7.408E+429  
+Total possible combinations ≈ 10^434  = 2^1441, That is 1441 bits (which is quie strong).  
 ##Using single layered Grayscale Image
 ###Input Image (Grayscale Lena)  
 ![Input grayscale image](https://raw.githubusercontent.com/27himanshu/image-enigma/master/examples/gray_lena.png)  
